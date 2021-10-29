@@ -1,0 +1,28 @@
+<p-dialog header="Editar / Criar Categoria." [(visible)]="dialogOpened" (onHide)="onClose()">
+    <ng-template pTemplate="content">
+        <div>
+            <div>
+                <div style="width: 50px; margin: 5px;">
+                    Nome:
+                </div>
+                <input type="text" pInputText [(ngModel)]="category.name" />
+            </div>
+
+            <div>
+                <div style="width: 50px; margin: 5px;">
+                    Setor:
+                </div>
+                <p-dropdown [options]="sectorsList" [(ngModel)]="category.sector" 
+                    optionLabel="name" appendTo="body" placeholder="Selecione">
+                </p-dropdown>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div>
+            <button pButton type="button" label="Cancelar" (click)="close()"></button>
+            <button pButton type="button" label="Salvar" (click)="saveCategory()"></button>
+        </div>
+    </ng-template>
+</p-dialog>

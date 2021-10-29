@@ -1,0 +1,42 @@
+<p-dialog header="Editar / Criar Produto." [(visible)]="dialogOpened" (onHide)="onClose()">
+    <ng-template pTemplate="content">
+        <div>
+            <div>
+                <div style="width: 50px; margin: 5px;">
+                    Nome:
+                </div>
+                <input type="text" pInputText [(ngModel)]="product.name" />
+            </div>
+
+            <div>
+                <div style="width: 50px; margin: 5px;">
+                    Descrição:
+                </div>
+                <input type="text" pInputText [(ngModel)]="product.description" />
+            </div>
+
+            <div>
+                <div style="width: 50px; margin: 5px;">
+                    Preço:
+                </div>
+                <input type="number" pInputText [(ngModel)]="product.price" />
+            </div>
+
+            <div>
+                <div style="width: 50px; margin: 5px;">
+                    Categoria:
+                </div>
+                <p-dropdown [options]="categoriesList" [(ngModel)]="product.category" 
+                    optionLabel="name" appendTo="body" placeholder="Selecione">
+                </p-dropdown>
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div>
+            <button pButton type="button" label="Cancelar" (click)="close()"></button>
+            <button pButton type="button" label="Salvar" (click)="saveProduct()"></button>
+        </div>
+    </ng-template>
+</p-dialog>

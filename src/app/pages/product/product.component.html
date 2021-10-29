@@ -1,0 +1,43 @@
+<div>
+
+    <div style="display: flex; align-items: center; margin: 0px 25px;">
+        <h2>Todas Produtos</h2>
+        <div style="margin: 0px 25px;">
+            <button pButton type="button" label="Novo" (click)="newProduct()"></button>
+        </div>
+    </div>
+
+    <p-table [value]="products" responsiveLayout="scroll">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Opções</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Preço</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>
+                    <div style="display: flex;">
+                        <button pButton pRipple type="button" icon="pi pi-pencil"
+                            class="p-button-rounded p-button-outlined" style="color: green!important;"
+                            (click)="editProduct(product)">
+                        </button>
+                        <button pButton pRipple type="button" icon="pi pi-times"
+                            class="p-button-rounded p-button-outlined" style="color: red!important;"
+                            (click)="deleteProduct(product)">
+                        </button>
+                    </div>
+                </td>
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.category.name}}</td>
+                <td>{{product.price}}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+<app-dialog-edit-product [(dialogOpened)]="dialogOpened" [(product)]="dialogProduct" (hasSaved)="getProducts()">
+</app-dialog-edit-product>

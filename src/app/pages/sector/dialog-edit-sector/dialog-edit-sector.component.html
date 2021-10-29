@@ -1,0 +1,22 @@
+<p-dialog header="Editar / Criar Setor." [(visible)]="dialogOpened" (onHide)="onClose()">
+    <ng-template pTemplate="content">
+        <div>
+            <div *ngIf="sector.id != null">
+                Id: {{sector.id}}
+            </div>
+            <div>
+                <div style="width: 50px; margin: 5px;">
+                    Nome:
+                </div>
+                <input type="text" pInputText [(ngModel)]="sector.name" />
+            </div>
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div>
+            <button pButton type="button" label="Cancelar" (click)="close()"></button>
+            <button pButton type="button" label="Salvar" (click)="saveSector()"></button>
+        </div>
+    </ng-template>
+</p-dialog>
